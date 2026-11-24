@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DJ StoX – Deep House, Melodic Techno & Tech House aus der Wetterau. Entspannter Café- & Bar-Sound, Coffee Raves, Daily Clubs & private Feiern in Hessen & Rhein-Main.">
+    <title>DJ StoX | Deep House • Melodic Techno • Tech House | Wetterau</title>
+    
+    <!-- Tailwind CSS (Framework) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        club: {
+                            bg: '#0a0a0c',
+                            surface: '#121216',
+                            card: '#18181f',
+                            border: '#272732',
+                            cyan: '#00f0ff',
+                            magenta: '#b026ff',
+                            text: '#f3f4f6',
+                            muted: '#9ca3af'
+                        }
+                    },
+                    fontFamily: {
+                        // DSGVO-konformer System-Font-Stack (kein Google Fonts CDN-Leak!)
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Club Aesthetics & Neon Glows */
+        body {
+            background-color: #0a0a0c;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #272732;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        /* Neon Text & Box Effects */
+        .text-glow-cyan {
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2);
+        }
+        .text-glow-magenta {
+            text-shadow: 0 0 20px rgba(176, 38, 255, 0.5), 0 0 40px rgba(176, 38, 255, 0.2);
+        }
+        .box-glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+        }
+        .box-glow-magenta {
+            box-shadow: 0 0 25px rgba(176, 38, 255, 0.15);
+        }
+        .gradient-border {
+            position: relative;
+            background: #121216;
+            border-radius: 1rem;
+        }
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.05rem;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.4), rgba(176, 38, 255, 0.4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* StoX Wide Metallic Display Style (inspiriert vom STOX-Logo) */
+        .font-stox {
+            font-family: 'Eurostile', 'Bank Gothic', 'Orbitron', 'Rajdhani', 'Bahnschrift', 'Segoe UI', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transform: scaleX(1.12);
+            transform-origin: center;
+        }
+
+        .stox-metallic {
+            background: linear-gradient(170deg, #f8fafc 0%, #e2e8f0 32%, #94a3b8 50%, #e0f2fe 68%, #7dd3fc 84%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 16px rgba(125, 211, 252, 0.35));
+        }
+
+        .stox-slash-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .stox-slash-wrap::after {
+            content: "";
+            position: absolute;
+            right: -12%;
+            bottom: 12%;
+            width: 44%;
+            height: 2.5px;
+            background: linear-gradient(90deg, rgba(125, 211, 252, 0), rgba(224, 242, 254, 1), rgba(125, 211, 252, 0.9), rgba(255, 255, 255, 0));
+            transform: rotate(-38deg);
+            box-shadow: 0 0 14px rgba(125, 211, 252, 0.95);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-club-cyan selection:text-club-bg">
+
+    <!-- ==================== 1. STICKY HEADER NAVIGATION ==================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-club-bg/80 backdrop-blur-lg border-b border-club-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#start" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-club-cyan to-club-magenta p-[2px] group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-club-bg rounded-[10px] flex items-center justify-center">
+                            <!-- Vinyl / Waveform SVG Icon -->
+                            <svg class="w-6 h-6 text-club-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-stox stox-metallic text-lg sm:text-xl">
+                            DJ STOX
+                        </span>
+                        <span class="block text-[10px] uppercase tracking-[0.25em] text-club-muted -mt-1">Wetterau • Hessen</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+                    <a href="#start" class="text-gray-300 hover:text-club-cyan transition-colors">Start</a>
+                    <a href="#sound" class="text-gray-300 hover:text-club-cyan transition-colors">Sound & Sets</a>
+                    <a href="#about" class="text-gray-300 hover:text-club-cyan transition-colors">Über mich</a>
+                    <a href="#gigs" class="text-gray-300 hover:text-club-cyan transition-colors">Angebote & Gigs</a>
+                    <a href="#tech" class="text-gray-300 hover:text-club-cyan transition-colors">Tech & Presskit</a>
+                    <a href="#booking" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-club-cyan to-club-magenta text-club-bg font-bold hover:opacity-90 transition-all shadow-lg shadow-club-cyan/20">
+                        Jetzt Anfragen
+                    </a>
+                </nav>
+
+                <!-- Mobile Burger Button -->
+                <button id="mobile-menu-btn" aria-label="Menü öffnen" class="md:hidden p-2.5 rounded-xl bg-club-surface border border-club-border text-gray-200 hover:text-club-cyan focus:outline-none">
+                    <svg id="burger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-club-surface/95 backdrop-blur-xl border-b border-club-border px-4 pt-3 pb-6 space-y-2">
+            <a href="#start" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-club-card hover:text-club-cyan">Start</a>
+            <a href="#sound" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-club-card hover:text-club-cyan">Sound & Sets</a>
+            <a href="#about" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-club-card hover:text-club-cyan">Über mich</a>
+            <a href="#gigs" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-club-card hover:text-club-cyan">Angebote & Gigs</a>
+            <a href="#tech" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-club-card hover:text-club-cyan">Tech & Presskit</a>
+            <div class="pt-2">
+                <a href="#booking" class="mobile-link block w-full text-center px-5 py-3.5 rounded-xl bg-gradient-to-r from-club-cyan to-club-magenta text-club-bg font-bold">
+                    Jetzt Anfragen
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section id="start" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Atmospheric Wave Canvas & Gradients -->
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-60"></canvas>
+        <div class="absolute top-1/4 -left-32 w-96 h-96 bg-club-cyan/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-club-magenta/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-club-bg/30 via-transparent to-club-bg pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Status Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-club-surface/90 border border-club-border mb-8 backdrop-blur-md">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-club-cyan opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-club-cyan"></span>
+                </span>
+                <span class="text-xs sm:text-sm font-medium text-gray-300 tracking-wide">
+                    Verfügbar für Anfragen & Sessions • Wetterau & Rhein-Main
+                </span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="mb-6 flex flex-col items-center">
+                <span class="font-stox text-xs sm:text-sm tracking-[0.45em] text-club-cyan/90 mb-2">
+                    DJ PRESENTING
+                </span>
+                <span class="stox-slash-wrap font-stox stox-metallic text-5xl sm:text-7xl md:text-8xl leading-none">
+                    STOX
+                </span>
+            </h1>
+
+            <!-- Subline -->
+            <p class="text-lg sm:text-2xl font-medium text-gray-200 tracking-wide mb-4">
+                Deep House <span class="text-club-cyan mx-1">•</span> Melodic Techno <span class="text-club-magenta mx-1">•</span> Tech House
+            </p>
+            <p class="max-w-2xl mx-auto text-sm sm:text-base text-club-muted mb-10 leading-relaxed">
+                50 Jahre jung, frisch am Pult und voller Leidenschaft für warme Grooves, treibende Basslines und hypnotische Melodien. 
+                Passend vom entspannten <strong class="text-white">Café- & Bar-Abend</strong> über <strong class="text-white">Coffee Raves</strong> und <strong class="text-white">Daily Clubs</strong> bis zu <strong class="text-white">Privaten Feiern</strong> in der Wetterau.
+            </p>
+
+            <!-- Hero CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-white via-club-cyan to-sky-300 text-club-bg font-extrabold text-base tracking-wide hover:scale-105 transition-transform shadow-xl shadow-club-cyan/20">
+                    Jetzt Anfragen
+                </a>
+                <a href="#sound" class="w-full sm:w-auto px-8 py-4 rounded-full bg-club-surface/90 border border-club-cyan/50 text-white font-bold text-base hover:bg-club-cyan/10 hover:border-club-cyan transition-all flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5 text-club-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                    </svg>
+                    <span>Sound & Demo-Sets</span>
+                </a>
+            </div>
+
+            <!-- Quick Genre / Vibe Tags -->
+            <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto text-xs text-club-muted border-t border-club-border/60 pt-6">
+                <div>
+                    <span class="block text-white font-bold text-sm">Warm bis Treibend</span>
+                    <span>Café, Lounge & Bar</span>
+                </div>
+                <div class="border-x border-club-border/60">
+                    <span class="block text-club-cyan font-bold text-sm">100% Herzblut</span>
+                    <span>Fresh Newbie Energy</span>
+                </div>
+                <div>
+                    <span class="block text-white font-bold text-sm">Wetterau</span>
+                    <span>& Umgebung</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. SOUND & DEMO-SETS (SAUBERE ÜBERSICHT) ==================== -->
+    <section id="sound" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-club-cyan">Hörprobe & Vibe-Check</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 text-white">Sound & Demo-Sets</h2>
+                <p class="text-club-muted mt-3 max-w-2xl mx-auto text-sm sm:text-base">
+                    Kompakte 20–45-Minuten-Mixe für Cafés, Lounges und Barabende – abgestimmt auf Tageszeit, Raumstimmung und Gäste.
+                </p>
+            </div>
+
+            <!-- Clean Demo-Set Overview Box -->
+            <div class="gradient-border p-6 sm:p-10 box-glow-cyan">
+                <div class="grid grid-cols

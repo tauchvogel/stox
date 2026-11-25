@@ -1,0 +1,3 @@
+# Testseite: alle Crawler ausgesperrt
+User-agent: *
+Disallow: /
